@@ -3,8 +3,22 @@
         <!-- Launch Detials -->
         <Label text="Launch Details" class="h1 text-center" textWrap="true"></Label>
         
-        <Image [src]="launch.links.mission_patch"></Image>
+        <Image [src]="launch.links.mission_patch">
+        </Image>
         
+        <Label text="{{ 'Flight Number: ' + launch.flight_number }}" class="body m-l-20 m-t-20" textWrap="true"></Label>
+        <Label text="{{ 'Date: ' + launch.launch_date_utc }}" class="body m-l-20 m-t-20" textWrap="true"></Label>
 
+        <Label [text]="launch.details" class="body m-l-20 m-r-20 m-t-20" textWrap="true"></Label>
+        
+        <Label text="{{ 'Article: ' + launch.links.article_link }}" 
+            class="body m-l-20 m-r-20 m-t-20" textWrap="true"
+            (tap)="onLinkTap(launch.links.article_link)">
+        </Label>
+
+        <Label text="{{ 'Video: ' + launch.links.video_link }}" 
+            class="body m-l-20 m-r-20 m-t-20" textWrap="true"
+            (tap)="onLinkTap(launch.links.video_link)">
+        </Label>
     </StackLayout>
 </ScrollView>
