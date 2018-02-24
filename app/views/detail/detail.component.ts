@@ -21,9 +21,7 @@ export class DetailComponent implements OnInit {
         private launchService: LaunchService) { }
 
     ngOnInit(): void {
-        console.log("on init");
         const flightNumber = +this.route.snapshot.params["id"];
-        console.log(flightNumber);
         this.launch = this.launchService.getLaunch(flightNumber);
     }
 }

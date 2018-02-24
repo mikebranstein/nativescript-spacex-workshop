@@ -3,8 +3,10 @@
         <!-- Launch Detials -->
         <Label text="Launch Details" class="h1 text-center" textWrap="true"></Label>
         
-        <Image [src]="launch.links.mission_patch"></Image>
+        <Image [src]="launch.links.mission_patch">
+        </Image>
         
+        <Label text="{{ 'Flight Number:' + launch.flight_number }}" textWrap="true"></Label>
 
     </StackLayout>
 </ScrollView>
