@@ -2,19 +2,14 @@
     <Label text="Upcoming Launches"></Label>
     <ListView [items]="launches" class="list-group">
         <ng-template let-item="item">
-            <StackLayout orientation="horizontal">
-                <Image src="http://i.imgur.com/VAvulaO.png" 
-                    class="img-rounded p-l-15 p-r-15 p-t-15">
-                </Image>
-                <StackLayout>
-                        <Label 
-                        [nsRouterLink]="['/detail', item.launch_year]" 
-                        [text]="item.rocket.rocket_name"
-                        class="list-group-item">
-                    </Label>
-                </StackLayout>
-            </StackLayout>
-            
+            <GridLayout rows="*" columns="auto, *"
+                [nsRouterLink]="['/detail', item.launch_number]"
+                class="list-group-item">
+                <Image row="0" col="0" [src]="item.links.mission_patch" class="thumb img-circle"></Image>
+                <Label row="0" col="1" [text]="item.rocket.rocket_name"></Label>
+                <Label row="0" col="1" [text]="item.rocket.rocket_name"></Label>
+                <Label row="0" col="1" [text]="item.rocket.rocket_name"></Label>
+            </GridLayout>            
         </ng-template>
     </ListView>
 </StackLayout>
