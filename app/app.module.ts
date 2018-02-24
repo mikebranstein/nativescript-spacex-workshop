@@ -2,6 +2,7 @@ import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
+import { HttpClientModule } from "@angular/common/http";
 
 import { HomeComponent } from "./views/home/home.component";
 import { ListComponent } from "./views/list/list.component";
@@ -20,7 +21,8 @@ import { LaunchService } from "./services/launchService";
     ],
     imports: [
         NativeScriptModule,
-        AppRoutingModule
+        AppRoutingModule,
+        HttpClientModule
     ],
     declarations: [
         AppComponent,

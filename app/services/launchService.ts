@@ -1,11 +1,13 @@
 import { Injectable } from "@angular/core";
 import { Launch } from '../models/launch'
+import { HttpClient, HttpParams } from '@angular/common/http';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class LaunchService {
     private launches: Launch[];
 
-    constructor() {
+    constructor(private http: HttpClient) {
         this.launches = [
             {
                 "flight_number": 42,
@@ -50,6 +52,15 @@ export class LaunchService {
                 "details": "First flight with fairing 2.0. Will also carry two SpaceX test satellites for the upcoming Starlink constellation."
             }
         ];
+
+        this.getUpcomingFromApi();
+    }
+
+    private getUpcomingFromApi(): void {
+        // let x = this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches').map(l => {
+        //     this.launches = l;
+        // }); // past launches
+        // let y = this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches/upcoming'); // upcoming launches
     }
 
     public getUpcoming(): Launch[]{
