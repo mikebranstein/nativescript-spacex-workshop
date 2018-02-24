@@ -27,6 +27,27 @@ export class LaunchService {
                     "video_link": "https://www.youtube.com/watch?v=Y8mLi-rRTh8"
                 },
                 "details": "Second time a booster will be reused: Second flight of B1029 after the Iridium mission of January 2017. The satellite will be the first commercial Bulgarian-owned communications satellite and it will provide television broadcasts and other communications services over southeast Europe."
+            },
+            {
+                "flight_number": 56,
+                "launch_year": "2018",
+                "launch_date_utc": "2018-02-22T14:17:00Z",
+                "rocket": {
+                    "rocket_id": "falcon9",
+                    "rocket_name": "Falcon 9",   
+                }, 
+                "launch_site": {
+                    "site_id": "vafb_slc_4e",
+                    "site_name": "VAFB SLC 4E",
+                    "site_name_long": "Vandenberg Air Force Base Space Launch Complex 4E"
+                },
+                "launch_success": true,
+                "links": {
+                    "mission_patch": "https://i.imgur.com/6iUJpn4.png",
+                    "article_link": "https://spaceflightnow.com/2018/02/22/recycled-spacex-rocket-boosts-paz-radar-satellite-first-starlink-testbeds-into-orbit/",
+                    "video_link": "https://www.youtube.com/watch?v=-p-PToD2URA"
+                },
+                "details": "First flight with fairing 2.0. Will also carry two SpaceX test satellites for the upcoming Starlink constellation."
             }
         ];
     }
