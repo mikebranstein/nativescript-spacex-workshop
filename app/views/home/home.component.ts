@@ -1,4 +1,5 @@
 import { Component, OnInit } from "@angular/core";
+import { RouterExtensions } from "nativescript-angular/router"; 
 
 @Component({
     selector: "home",
@@ -7,11 +8,15 @@ import { Component, OnInit } from "@angular/core";
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    constructor() { 
+    constructor(private routerExtensions: RouterExtensions) { 
         
     }
 
     ngOnInit(): void {
     
+    }
+
+    onViewLaunchesTap() : void {
+        this.routerExtensions.navigate(["list"]);
     }
 }
