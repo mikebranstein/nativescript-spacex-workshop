@@ -1,8 +1,8 @@
 import { Component, OnInit } from "@angular/core";
-import { RouterExtensions, PageRoute } from "nativescript-angular/router";  
-import "rxjs/add/operator/switchMap";    
+import { ActivatedRoute } from "@angular/router";
 
 import { Launch } from "../../models/launch";
+import { Links } from "../../models/links";
 import { LaunchService } from "../../services/launchService";
 
 
@@ -10,24 +10,20 @@ import { LaunchService } from "../../services/launchService";
     selector: "detail",
     moduleId: module.id,
     templateUrl: "./detail.component.html",
-    styleUrls: ['./detail.component.css']
+    styleUrls: ['./detail.component.css'],
+    providers: [LaunchService]
 })
 export class DetailComponent implements OnInit {
     launch: Launch;
 
     constructor(
-        private routerExtensions: RouterExtensions,
-        private pageRoute: PageRoute,
+        private route: ActivatedRoute,
         private launchService: LaunchService) { }
 
     ngOnInit(): void {
-        let id:number;                                        
-        this.pageRoute.activatedRoute                         
-            .switchMap(activatedRoute => activatedRoute.params) 
-            .forEach((params) => {                              
-                id = +params["id"];                               
-            });                                                 
-    
-        this.launch = this.launchService.
+        console.log("on init");
+        const flightNumber = +this.route.snapshot.params["id"];
+        console.log(flightNumber);
+        this.launch = this.launchService.getLaunch(flightNumber);
     }
 }
