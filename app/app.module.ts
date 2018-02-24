@@ -3,12 +3,10 @@ import { NativeScriptModule } from "nativescript-angular/nativescript.module";
 import { AppRoutingModule } from "./app.routing";
 import { AppComponent } from "./app.component";
 
-import { ItemService } from "./item/item.service";
-import { ItemsComponent } from "./item/items.component";
-import { ItemDetailComponent } from "./item/item-detail.component";
 import { HomeComponent } from "./views/home/home.component";
 import { ListComponent } from "./views/list/list.component";
 import { DetailComponent } from "./views/detail/detail.component";
+import { LaunchService } from "./services/launchService";
 
 // Uncomment and add to NgModule imports if you need to use two-way binding
 // import { NativeScriptFormsModule } from "nativescript-angular/forms";
@@ -31,7 +29,7 @@ import { DetailComponent } from "./views/detail/detail.component";
         DetailComponent
     ],
     providers: [
-        ItemService
+       
     ],
     schemas: [
         NO_ERRORS_SCHEMA

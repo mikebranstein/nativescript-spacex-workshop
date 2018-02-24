@@ -1,3 +1,20 @@
 <StackLayout>
-    
+    <Label text="Upcoming Launches"></Label>
+    <ListView [items]="launches" class="list-group">
+        <ng-template let-item="item">
+            <StackLayout orientation="horizontal">
+                <Image src="http://i.imgur.com/VAvulaO.png" 
+                    class="img-rounded p-l-15 p-r-15 p-t-15">
+                </Image>
+                <StackLayout>
+                        <Label 
+                        [nsRouterLink]="['/detail', item.launch_year]" 
+                        [text]="item.rocket.rocket_name"
+                        class="list-group-item">
+                    </Label>
+                </StackLayout>
+            </StackLayout>
+            
+        </ng-template>
+    </ListView>
 </StackLayout>
