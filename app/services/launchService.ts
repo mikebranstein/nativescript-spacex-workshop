@@ -43,4 +43,11 @@ export class LaunchService {
     public getPast(): Launch[]{
         return this.launches;
     }
+
+    public getLaunch(flight_number : number) : Launch {
+        let results = this.launches
+            .filter((l : Launch) => l.flight_number == flight_number);
+        if (results.length > 0) return results[0];
+        return null;
+    }
 }
