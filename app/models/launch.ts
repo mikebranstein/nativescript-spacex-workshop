@@ -1,5 +1,6 @@
 import { Rocket } from "./rocket";
 import { LaunchSite } from "./launchSite";
+import { Links } from "./links";
 
 export interface Launch {
     flight_number: number;
@@ -10,4 +11,5 @@ export interface Launch {
 
     rocket: Rocket;
     launch_site: LaunchSite;
+    links: Links;
 }
