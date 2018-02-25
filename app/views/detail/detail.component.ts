@@ -23,7 +23,14 @@ export class DetailComponent implements OnInit {
 
     ngOnInit(): void {
         const flightNumber = +this.route.snapshot.params["id"];
-        this.launch = this.launchService.getLaunch(flightNumber);
+        //this.launch = this.launchService.getLaunch(flightNumber);
+
+        this.launchService.getLaunchFromApi(flightNumber).subscribe(model => {
+            if (!model.links.mission_patch.includes('https'))
+                model.links.mission_patch = model.links.mission_patch.replace('http', 'https'); // quick fix
+            
+            this.launch = model;
+        });
     }
 
     onLinkTap(link: string) : void {

@@ -26,9 +26,11 @@ export class ListComponent implements OnInit {
         });
 
         this.launchService.getPastFromApi().subscribe(data => {
-            console.log(data.length);
-            
             data.forEach((model) => {   
+                
+                if (!model.links.mission_patch.includes('https'))
+                    model.links.mission_patch = model.links.mission_patch.replace('http', 'https'); // quick fix
+                
                 this.past.push(model);
             });
         });

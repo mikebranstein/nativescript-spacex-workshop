@@ -71,10 +71,17 @@ export class LaunchService {
         return this.launches;
     }
 
-    public getLaunch(flight_number : number) : Launch {
+    public getLaunch(flight_number: number): Launch {
         let results = this.launches
             .filter((l : Launch) => l.flight_number == flight_number);
         if (results.length > 0) return results[0];
         return null;
+    }
+
+    public getLaunchFromApi(flight_number: number): Observable<Launch> {
+        return this.http.get<Launch>(`https://api.spacexdata.com/v2/launches?flight_number=${flight_number}`)
+            .map(data => {
+                return data[0];
+            }); // single launch
     }
 }
