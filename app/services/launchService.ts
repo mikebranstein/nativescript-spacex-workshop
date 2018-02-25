@@ -2,6 +2,7 @@ import { Injectable } from "@angular/core";
 import { Launch } from '../models/launch'
 import { HttpClient, HttpParams } from '@angular/common/http';
 import 'rxjs/add/operator/map';
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class LaunchService {
@@ -52,15 +53,14 @@ export class LaunchService {
                 "details": "First flight with fairing 2.0. Will also carry two SpaceX test satellites for the upcoming Starlink constellation."
             }
         ];
-
-        this.getUpcomingFromApi();
     }
 
-    private getUpcomingFromApi(): void {
-        // let x = this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches').map(l => {
-        //     this.launches = l;
-        // }); // past launches
-        // let y = this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches/upcoming'); // upcoming launches
+    public getUpcomingFromApi(): Observable<Launch[]> {
+        return this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches/upcoming'); // upcoming launches
+    }
+
+    public getPastFromApi(): Observable<Launch[]> {
+        return this.http.get<Launch[]>('https://api.spacexdata.com/v2/launches?launch_year=2017'); // past launches
     }
 
     public getUpcoming(): Launch[]{
